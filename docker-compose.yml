@@ -35,7 +35,7 @@ services:
       # Bind Docker volume on host for JupyterHub database and cookie secrets
       - "data:${DATA_VOLUME_CONTAINER}"
     ports:
-      - "443:443"
+      - "8000:8000"
     links:
       - hub-db
     environment:
@@ -50,6 +50,9 @@ services:
       # Postgres db info
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_HOST: hub-db
+      # Other
+      DUMMY_PASSWORD: ${DUMMY_PASSWORD}
+      DATA_VOLUME_CONTAINER: ${DATA_VOLUME_CONTAINER}
     env_file:
       - secrets/postgres.env
       # - secrets/oauth.env

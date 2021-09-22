@@ -60,7 +60,7 @@ c.JupyterHub.authenticator_class = 'dummyauthenticator.DummyAuthenticator'
 c.DummyAuthenticator.password = os.environ['DUMMY_PASSWORD']
 
 # Persist hub data on volume mounted inside container
-data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
+data_dir = os.environ['DATA_VOLUME_CONTAINER']
 
 c.JupyterHub.cookie_secret_file = os.path.join(data_dir,
     'jupyterhub_cookie_secret')
