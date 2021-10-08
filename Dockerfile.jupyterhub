@@ -24,3 +24,7 @@ RUN /opt/conda/bin/conda install -c conda-forge ruamel.yaml
 #    chmod 600 /srv/jupyterhub/secrets/*
 
 COPY ./userlist /srv/jupyterhub/userlist
+
+# Update Jupterhub db
+# https://github.com/jupyterhub/jupyterhub-deploy-docker/issues/87
+CMD ["jupyterhub" "update-db"]
